@@ -1,0 +1,492 @@
+//navPages.scss customizations
+.navPages-container {
+    @include breakpoint("medium") {
+        background: #dc3522;
+    }
+}
+.navPages {
+    background-color: stencilColor("navPages-subMenu-backgroundColor"); //$navPages-backgroundColor;
+    @include breakpoint("medium") {
+        padding: 0 spacing("half");
+        text-align: left;
+        background: none;
+        margin: 0;
+    }
+    @include breakpoint("large") {
+        //padding: 0 (spacing("single") + spacing("half"));
+    }
+    .navPage-subMenu-list {
+        border-left: 1px rgba(255,255,255,0.5) solid;
+        padding-left: 1rem;
+        @include breakpoint("medium") {
+            border-left: 0;
+            margin-left: 0;
+        }
+    }
+}
+.navPages-action {
+    font-weight: 700;
+    font-family: stencilFontFamily("nav-font");
+    text-transform: none;
+    @include breakpoint("small") {
+        font-size: .87rem;
+    }
+    @include breakpoint("medium") {
+        padding: spacing("half") spacing("half") (spacing("half") + spacing("quarter"));
+    }
+    @include breakpoint("large") {
+        font-size: fontSize("smaller");
+    }
+    &:hover, &.activePage {
+        opacity:0.85;
+    }
+}
+.navPages-action-moreIcon {
+    .has-subMenu.is-open & {
+        transform: rotateX(180deg);
+        transition: .5s linear;
+    }
+}
+.navPage-subMenu {
+    @include breakpoint("medium") {
+        padding: spacing("single") spacing("single") spacing("half") !important;
+        display:block;
+        width: 100%;
+        left:0;
+        transform-origin: 0 0;
+        transform:scaleY(0);
+        transition:.25s ease-in-out;
+        box-shadow: 0 15px 30px -15px rgba(0,0,0,0.25);
+        &.is-open {
+            transform:scaleY(1);
+            transition:.15s ease-out;
+        }
+    }
+}
+.navInfo {
+    margin-left:0;
+    @include breakpoint("medium") {
+      float: right;
+      li {
+        display:inline-block;
+      }
+    }
+}
+li.storeInfo {
+  .deets {
+    min-width:50%;
+    p,a{
+        color: stencilColor("navPages-color");
+        font-size: 14px;
+        text-shadow: none;
+        background:none;
+        margin-bottom: .5rem;
+    }
+    i{
+        font-size:24px;
+        color: stencilColor("navPages-color");
+        width: 24px;
+        margin-right: .5rem;
+        text-align:center;
+        float:left;
+    }
+  }
+    @include breakpoint("medium") {
+        float: right;
+        display: flex;
+        flex-wrap: wrap;
+        min-height:380px;
+        width:50%;
+        padding: spacing("half") spacing("half") (spacing("half") + spacing("quarter")) spacing("half");
+        img{
+            margin-left: spacing("single");
+        }
+    }
+}
+//.storeInfo p, .storeInfo a {
+//    color: #ffffff;
+//    font-size: 16px;
+//}
+//#navPages-18 > ul li:nth-child(1) {
+//    float:none;
+//}
+//#navPages-18 > ul li:nth-child(2) a:before {
+//    content: url(/assets/img/fully-rugged.png);
+//    display:block;
+//}
+//#navPages-18 > ul li:nth-child(3) a:before {
+//    content: url(/assets/img/semi-rugged.png);
+//    display:block;
+//}
+//#navPages-18 > ul li:nth-child(4) a:before {
+//    content: url(/assets/img/business-rugged.png);
+//    display:block;
+//}
+//#navPages-18 > ul li:nth-child(5) a:before {
+//    content: url(/assets/img/tablet.png);
+//    display:block;
+//}
+.navPages-item a,
+.navInfo a {
+    &:focus {
+        color:white;
+        transition:.15s;
+    }
+}
+.navPage-subMenu-item a {
+    transition: .75s ease;
+    &:hover {
+        border-color: stencilColor("color-white");
+        //background:radial-gradient(farthest-side at 50% 100%,#dc3522,transparent);
+        transition:.25s ease;
+    }
+}
+#navPages-18 > ul li {
+    text-align: center;
+    &:first-child {
+        float: none;
+        text-align: left;
+    }
+    //&:nth-child(2) a:before {
+    //    content: url(../img/fully-rugged.png);
+    //}
+    //&:nth-child(3) a:before {
+    //    content: url(../img/semi-rugged.png);
+    //}
+    //&:nth-child(4) a:before {
+    //    content: url(../img/business-rugged.png);
+    //}
+    //&:nth-child(5) a:before {
+    //    content: url(../img/tablet.png);
+    //}
+    a[href*="/panasonic-toughbooks-fully"] {
+      &:before {
+        content: url('../img/fully-rugged.svg');
+      }
+    }
+    a[href*="/panasonic-toughbooks-semi"]:before {
+        content: url('../img/semi-rugged.svg');
+    }
+    a[href*="/panasonic-toughbooks-business"]:before {
+        content: url('../img/business-rugged.svg');
+    }
+    a[href*="/tablets"]:before {
+        content: url('../img/tablet.svg');
+    }
+    a:before{
+        display:block;
+        margin: 0 2rem;
+    }
+    a[href*="/scratch"] {
+        display:none;
+    }
+}
+.map {
+  min-width:14rem;
+  min-height:14rem;
+  transition:0.5s;
+  background: url('../img/bjcs-location-map.svg') no-repeat;
+  background-size: contain;
+  margin-bottom:spacing("half");
+  @include breakpoint("medium") {
+    flex-grow:1;
+    margin-right: spacing("half");
+  }
+}
+//tryna make a sticky navigation bar
+//nav.navPages.stickytop {
+//  @include breakpoint("medium") {
+//    position: fixed;
+//    top:0;
+//  }
+//}
+.bjcs {
+  //display:none;
+  margin-left:-6rem;
+  opacity:0;
+}
+.is-sticky {
+  @include breakpoint("medium") {
+    .navPages-container {
+      background: stencilColor("color-greyDarkest");
+      transition: background 2s ease-in-out .5s;
+      box-shadow: 0 0 30px rgba(0,0,0,0.25);
+      .bjcs {
+        display:block;
+        position:relative;
+        float:left;
+        height:48px;
+        width:6rem;
+        //padding:12px;
+        background-color:#dc3522;
+        background-image: url('../img/bjcs-tiny-white.png');
+        background-repeat:no-repeat;
+        background-position: center;
+        margin-left: -(spacing("half"));
+        opacity:1;
+        transition:.2s ease-in-out;
+        &:before {
+          content:"";
+          background-color:#ffffff;
+          height:48px;
+          position:absolute;
+          top:0;
+          left:6rem;
+          width:0;
+          opacity:.5;
+        }
+        &:after {
+          content:"";
+          background-color:#ffffff;
+          height:48px;
+          position:absolute;
+          top:0;
+          left:6rem;
+          width:0;
+          opacity:.3;
+        }
+        &:hover{
+          animation: pulse 1s ease;
+          @keyframes pulse {
+            0% {
+              background-color:#dc3522;
+            }
+            25% {
+              background-color:#F55747;
+            }
+            100% {
+              background-color:#dc3522;
+            }
+          }
+          &:before {
+            width:97px;
+            height:48px;
+            border-radius: 0;
+            top:0;
+            left:-107px;
+            opacity:.3;
+            transition:1s;
+            background-color:#ffffff;
+            transform: skewX(-20deg);
+          }
+          &:after {
+            width:97px;
+            height:48px;
+            border-radius: 0;
+            top:0;
+            left:-107px;
+            opacity:.1;
+            transition:.5s;
+            transition-delay: .15s;
+            background-color:#ffffff;
+            transform: skewX(-30deg);
+          }
+        }
+      }
+      .navPages-list:before{
+        //content: url(/assets/img/bjcs-tiny-white.png);
+        float:left;
+        padding:spacing("third") spacing("half") 0 0;
+      }
+      .navPages-action {
+        //font-size:0.75rem;
+        padding-bottom:0.75rem;
+        line-height:1.5rem;
+      }
+      .map {
+        //width:16rem;
+        //height:16rem;
+      }
+    }
+  }
+  @include breakpoint("large") {
+    .navPages-container {
+      .bjcs {
+        margin-left: -(spacing("single") + spacing("half"));
+      }
+      .navPages-action {
+        //font-size:1rem;
+      }
+    }
+  }
+}
+
+//navUser.scss customizations
+.navUser {
+    @include breakpoint("medium") {
+        padding: 0 spacing("half");
+        position: absolute;
+        top: 0;
+        float: right;
+    }
+    @include breakpoint("large") {
+        padding: 0 (spacing("single") + spacing("half"));
+    }
+    .dropdown-menu {
+        box-shadow: 0 0 30px rgba(0,0,0,0.25);
+    }
+}
+.navUser-action {
+    font-weight: 500;
+    font-family: stencilFontFamily("nav-font");
+    font-size: fontSize("smaller");
+    text-transform: none;
+    &:hover,
+    &.is-open {
+        opacity:0.85;
+    }
+    .material-icons {
+        vertical-align: top;
+        font-size: 1.33rem;
+    }
+}
+.navUser-item {
+    i {
+        font-size: 1.5rem;
+    }
+    @include breakpoint("medium") {
+        i {
+            font-size: 1rem;
+        }
+    }
+}
+.navUser-or {
+    font-size: fontSize("smaller");
+}
+.search-icon {
+    //display:inline-block;
+}
+.navUser-action--quickSearch {
+    &.is-open {
+        &:before {
+            z-index: zIndex("highest");
+        }
+    }
+}
+.dropdown--quickSearch {
+    .container {
+        opacity: 0;
+        transition: .15s ease-in-out;
+    }
+    @include breakpoint("small") {
+        padding: spacing("single");
+    }
+    &.is-open {
+        top: 0;
+        .container {
+            background-color: $dropdown--quickSearch-backgroundColor;
+            box-shadow: 0 0 30px rgba(0,0,0,0.25);
+            opacity:1;
+        }
+    }
+    .form-field{
+        margin-bottom: 1rem;
+        margin-top: 1rem;
+    }
+    .form-input {
+        background-color: transparent;
+        border-width:0 0 1px 0;
+        border-radius:0;
+    }
+}
+.navUser-item a {
+    &:focus {
+        color: #ffffff;
+    }
+}
+
+//header.scss customizations
+.header {
+    border-bottom: none;
+    z-index: zIndex("low");
+}
+.header-logo {
+    @include breakpoint("medium") {
+        margin:0;
+        padding: 0;
+        max-width: grid-calc(8, $total-columns);
+
+        .header.fixed & {
+            background-color: color("greys", "lightest");
+            margin: 0;
+            padding: spacing("quarter") 0;
+            position: absolute;
+            top: 0;
+            width: 100%;
+        }
+        > a {
+            width: 100%;
+        }
+    }
+    > a {
+        @include clearfix;
+        color: $storeName-color;
+        display: inline-block;
+        padding: $header-logo-paddingVertical 0;
+        position: relative;
+        text-decoration: none;
+        width: 60%;
+        z-index: zIndex("high");
+
+        // scss-lint:disable NestingDepth
+        @include breakpoint("medium") {
+            background: none;
+            border-bottom: 0;
+            display: inline;
+            padding: 0;
+            width: 100%;
+        }
+
+        &:hover {
+            color: color("link", "hover");
+        }
+
+        &:active {
+            color: color("link", "active");
+        }
+    }
+}
+.header-logo-image {
+    max-width:14rem;
+    @include breakpoint("medium") {
+        position: relative;
+    }
+}
+.header-logo--left .header-logo-image {
+	right: 0;
+}
+.header-logo--left {
+	text-align: center;
+	@include breakpoint("medium") {
+		text-align: left;
+	}
+}
+.header-logo-image-container { //This was .branding before, so I don't know if wedging these styles into the current Cornerstone layout will work.
+    @include breakpoint("medium") {
+        margin: 0 0 spacing("base");
+        padding: spacing("base") spacing("single") 0;
+        text-align: center;
+        width: auto;
+        min-width:16rem;
+        max-width: grid-calc(4, $total-columns);
+        display: inline-block;
+        z-index: zIndex("highest");
+        position:relative;
+        &::after {
+            padding-bottom:0;
+        }
+    }
+}
+.mobileMenu-toggle {
+    .mobileMenu-toggleIcon,
+    .mobileMenu-toggleIcon::before,
+    .mobileMenu-toggleIcon::after {
+        background: #ffffff;
+    }
+    &.is-open .mobileMenu-toggleIcon {
+        &::before,
+        &::after {
+            background: #ffffff;
+        }
+    }
+}
